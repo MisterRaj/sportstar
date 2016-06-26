@@ -1,0 +1,25 @@
+<h1 class="text-center">{{article.title}}</h1>
+<div ng-if="article.norecord">
+	<h1 class="alert-danger">Record not found!</h1>
+</div>
+<div class="container form-group" ng-if="!article.norecord">
+	<div class="row">
+		<div class="row" ng-if="article.imageExist" >
+			<span  class="help-inline"><img width=200 height=150 src={{article.image}} /></span>
+		</div>
+		<p>{{article.content}}</p>
+	</div>
+	<div class="row">
+		 <div  ng-if="article.status == 'Approved' && article.admin_comments != ''" class="alert alert-success fade in">
+		 	<p>{{article.admin_comments}}</p>
+	 	</div>
+		<div  ng-if="article.status == 'Rejected' && article.admin_comments != ''" class="alert alert-danger fade in">
+		 	<p>{{article.admin_comments}}</p>
+	 	</div>
+		<span class="tag label label-default" >{{article.category}}&nbsp; &nbsp;</span>
+		&nbsp; &nbsp;
+		<span ng-if="article.status == 'Rejected' && article.admin_comments != ''" class="tag label label-danger">{{article.status}}</span>
+		<span ng-if="article.status == 'Approved'" class="tag label label-success">{{article.status}}</span>
+	</div>
+	<div class="clear"></div>
+</div>

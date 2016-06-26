@@ -1,0 +1,39 @@
+<h1 class="text-center">Trending now</h1>
+<div class="col-md-12" ng-repeat="art in article">
+	<div class="jumbotron" ng-init="output = 'Hello '">
+		<h2>{{art.title}}</h2>
+		<p>{{art.content | limitTo : 1000 : 0}}</p>
+		<p><a href="#view-article/{{art.id}}" class="btn btn-primary btn-large">Read more</a><span class="pull-right tag label label-default">{{art.category}}</span>&nbsp;&nbsp;
+		<span class="pull-right tag label label-success">{{username}}</span>&nbsp;&nbsp;</p>
+	</div>
+</div>
+<paginator></paginator>
+<!--
+
+          <div class="row">
+            <div class="col-xs-4">
+              <label for="search">Search:</label>
+              <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+            </div>
+            <div class="col-xs-4">
+              <label for="search">items per page:</label>
+              <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+            </div>
+          </div>
+          <div class="col-md-12" ng-repeat="art in article">
+		<div class="jumbotron" dir-paginate="cont in content | filter:q | itemsPerPage: pageSize" current-page="currentPage" >
+			<h2>{{t}}</h2>
+			<p >{{cont | limitTo : 1000 : 0}}</p>
+			<p><a href="#view-article/{{art.id}}" class="btn btn-primary btn-large">Read more</a><span class="pull-right tag label label-default">{{art.category}}</span>&nbsp;&nbsp;
+			<span class="pull-right tag label label-success">{{username}}</span>&nbsp;&nbsp;</p>
+			</div>
+		</div>
+          <br>
+        </div>
+        <div ng-controller="OtherController" class="other-controller">
+			<div class="text-center">
+				<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+			</div>
+		</div>
+
+		-->

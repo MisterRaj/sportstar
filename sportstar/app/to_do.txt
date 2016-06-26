@@ -1,0 +1,15 @@
+Pages:
+1.Login
+General changes:
+1.Authentication based changes.
+
+Optimization Changes:
+1.Add form fields additional validation.
+2.Split post services into seperate custom services and factories.
+3.PHP optimization.
+	config vars.
+	Instead of individual files, use args.
+	some variable name changes.
+	Include path names as constant.
+4.Modify the way of accepting data through general post instead of the file input header.
+5.Status in list page.

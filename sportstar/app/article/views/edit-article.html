@@ -1,0 +1,51 @@
+<h1>{{article.title}}</h1>
+<form name="forms" novalidate >
+	<div ng-if="article.norecord">
+		<h1 class="alert-danger">Record not found!</h1>
+	</div>
+	<div class="container form-group" ng-controller="editArticle" ng-if="!article.norecord">
+		<div class="row">
+			<label for="article.title">Title</label>
+			<input type="text" name="title" ng-model="article.title" class="fright form-control"  required />
+			<div class="help-inline alert-danger"
+			 ng-show="(forms.$submitted || forms.title.$touched) && forms.title.$error.required">Please enter title</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label class="caption">Category</label>
+			<select class="form-control"  name="category" ng-model="article.category" ng-options ="art.id as art.title for art in categories"  required ></select>
+			<span class="help-inline alert-danger" ng-show="(forms.$submitted || forms.category.$touched) && forms.category.$error.required">Please enter category </span>
+		</div>
+
+		<div class="row">
+			<label class="caption" for="content">Content</label>
+			<textarea name="content" ng-model="article.content"  class="fright form-control" required /></textarea>
+			<span class="help-inline alert-danger" ng-show="(forms.$submitted || forms.content.$touched) && forms.content.$error.required">Please enter content </span>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row" ng-if="article.imageExist" >
+			<label class="caption">Existing Image</label>
+			<span  class="help-inline alert-danger"><img width=200 height=150 src={{article.image}} /></span>
+		</div>
+
+		<div class="row">
+			<label class="btn btn-default btn-file">
+    			Browse <input type="file" style="display: none;" file-model="myFile">
+			</label>
+		</div>
+
+		<div class="row">
+			<label class="caption">Status</label>
+			<select class="form-control" name="status" ng-model="article.status" ng-options ="stat.id as stat.title for stat in statusList"  class="fright" class="selectpicker" required >
+			</select>
+			<span class="help-inline alert-danger" ng-show="(forms.$submitted || forms.status.$touched) && forms.status.$error.required">Please enter Roll number </span>
+		</div>
+		<div class="clear"></div><br />
+		<div class="row">
+			<input type="submit" value="submit" class="btn btn-default" ng-click="forms.$valid && updateData()" />
+		</div>
+	</div>
+</form>

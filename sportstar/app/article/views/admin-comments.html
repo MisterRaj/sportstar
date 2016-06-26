@@ -1,0 +1,54 @@
+<h1>Admin Comments</h1>
+<form name="forms" novalidate >
+	<div class="container form-group" >
+
+		<div class="row">
+			<label class="caption" for="title">Title</label>
+			<div class="fright">{{article.title}}</div>
+			<div class="clear"></div><br />
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label class="caption">Category</label>
+		    <div class="panel panel-info">
+      			<div class="panel-heading">
+					{{article.category}}
+				</div>
+    		</div>
+		</div>
+
+		<div class="row">
+			<label class="caption" for="content">Content</label>
+			<div class="fright">{{article.content}}</div>
+			<div class="clear"></div><br />
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label class="caption">Article Image</label>
+			<img src="article/images/{{article.image}}" />
+			<span class="help-inline">{{article.image}}</span>
+		</div>
+
+		<div class="row">
+			<label class="caption">Status</label>
+				<select class="form-control" name="status" ng-model="article.status" ng-options ="stat.id as stat.title for stat in statusList"  class="fright" class="selectpicker" required >
+				</select>
+			<span class="help-inline" ng-show="(forms.$submitted || forms.status.$touched) && forms.status.$error.required">Please enter status</span>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label class="caption" for="admin_comments">Comments</label>
+			<textarea name="admin_comments" ng-model="article.admin_comments"  class="fright form-control" required /></textarea>
+			<span class="help-inline"  ng-class='{ "alert-danger" : forms.title.$touched}' ng-show="(forms.$submitted || forms.admin_comments.$touched) && forms.admin_comments.$error.required">Please enter comments </span>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<input type="submit" value="submit" ng-click='updateData()' class="btn btn-default" ng-disabled='!forms.$valid' />
+		</div>
+	</div>
+</form>

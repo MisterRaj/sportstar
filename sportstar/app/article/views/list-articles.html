@@ -1,0 +1,35 @@
+<h1>My Articles</h1>
+<div class="col-md-12">
+    <!--<span class="alert-danger" ng-if="failuremsg"><p ng-repeat="fail in failuremsg">{{ fail }}</p></span>-->
+    <div class="alert alert-success"  ng-show="showAlert" ng-repeat="succ in successmsg track by $index">{{ succ }} </div>
+    <div class="alert alert-danger"  ng-show="showAlert" ng-repeat="fail in failuremsg track by $index">{{ succ }}></div>
+    <p><strong>Page:</strong> {{tableParams.page()}}
+    <p><strong>Count per page:</strong> {{tableParams.count()}}
+    <p>Filter: <input class="form-control" type="text" ng-model="filter.$" /></p>
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="article in $data">
+            <td data-title="'Title'" sortable="'title'">
+                {{article.title}}
+            </td>
+            <td data-title="'Content'" sortable="'content'">
+                {{article.content}}
+            </td>
+            <td data-title="'Edit'" ng-if="role == 2">
+                <a href="#/edit-article/{{article.id}}">
+                    {{article.edit}}
+                </a>
+            </td>
+            <td data-title="'Approval'" ng-if="role == 1">
+                <a href="#/admin-comments/{{article.id}}">
+                    {{article.approve}}
+                </a>
+            </td>
+            <td data-title="'Category'">
+                {{article.category}}
+            </td>            
+            <td data-title="'Status'">
+                {{article.status}}
+            </td>         
+        </tr>
+    </table>
+</div>

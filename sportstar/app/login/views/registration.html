@@ -1,0 +1,56 @@
+<h1>Registration</h1>
+<form name="forms" novalidate ng-submit="forms.$valid && validate()">
+	<div class="container form-group" >
+		<div class="help-inline alert-danger" ng-show="errorList">
+			<span ng-repeat="(key, val) in errorList"> {{val}}</span>
+		</div>
+		<div class="row">
+			<label for="registration.name">Name</label>
+			<input type="text" name="name" ng-model="registration.name" class="fright form-control"  required />
+			<div class="help-inline alert-danger" ng-show="(forms.$submitted || forms.name.$touched) && forms.name.$error.required">Please enter username</div>
+		</div>
+		<div class="clear"></div>
+		
+		<div class="row">
+			<label for="registration.username">User name</label>
+			<input type="text" name="username" ng-model="registration.username" class="fright form-control"  required />
+			<div class="help-inline alert-danger" ng-show="(forms.$submitted || forms.username.$touched) && forms.username.$error.required">Please enter username</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label for="registration.password">Password</label>
+			<input type="password" name="password" ng-model="registration.password" class="fright form-control"  required />
+			<div class="help-inline alert-danger" ng-show="(forms.$submitted || forms.password.$touched) && forms.password.$error.required">Please enter password</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label for="registration.cpassword">Confirm Password</label>
+			<input type="password" name="cpassword" ng-model="registration.cpassword" class="fright form-control" compare-to="registration.password" required />
+			<div class="help-inline  alert-danger" ng-class='{ "alert-danger" : forms.cpassword.$touched}' ng-show="(forms.$submitted || forms.cpassword.$touched) && (forms.cpassword.$error.required)">Please Re-enter password</div>
+			<div class="help-inline  alert-danger" ng-class='{ "alert-danger" : forms.cpassword.$touched || forms.$submitted}' ng-show='((forms.$submitted || forms.cpassword.$touched)&& forms.cpassword.$error.compareTo)'>Your password does not match.</div>
+			
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label for="registration.email">Email</label>
+			<input type="text" name="email" ng-model="registration.email" class="fright form-control"  required />
+			<div class="help-inline alert-danger" ng-class='{ "alert-danger" : forms.email.$touched}' ng-show="(forms.$submitted || forms.email.$touched) && (forms.email.$error.required || forms.email.$error.email)">Please enter your email address</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="row">
+			<label for="registration.phone">Phone</label>
+			<input type="text" name="phone" ng-model="registration.phone" class="fright form-control"  required />
+			<div class="help-inline alert-danger"
+			 ng-show="(forms.$submitted || forms.phone.$touched) && forms.phone.$error.required">Please enter your phone number</div>
+		</div>
+		<div class="clear"></div><br />
+
+		<div class="row">
+			<input type="submit" value="submit" class="btn btn-default" />
+		</div>
+	</div>
+</form>

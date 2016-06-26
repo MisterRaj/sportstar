@@ -1,0 +1,2 @@
+statusList = [{title: 'New', id: 1, role: "Author"},{title: 'Sent To Review', id: 2, role: "Author"}, {title: 'Approved', id: 3, role: "Admin"},{title: 'Rejected', id: 4, role: "Admin"}];
+categories = [{title: 'Cricket',id: 1},{title: 'Football',id: 2 },{title: 'Tennis',id: 3},{title: 'Golf',id: 4,}];

@@ -1,0 +1,3 @@
+If module name given mistakenly with case difference, it shows only the page.
+Be careful while giving values to arguements in controller function and dependencies.
+	For example if we place a injector and not specified arguements then the error will not show on missed module, 
